@@ -1,0 +1,22 @@
+[run]
+# Cover conditions statements
+branch = true
+# Create different file for each env/process
+parallel = true
+source =
+    coloring
+    tests
+
+
+[paths]
+source =
+   src
+   */site-packages
+
+
+[report]
+# Show missing lines
+show_missing = true
+# Ex: show 92.23% instead of 92%
+precision = 2
+skip_covered = True

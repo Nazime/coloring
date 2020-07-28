@@ -1,0 +1,13 @@
+# generate automatically the doc with readthedocs.org
+---
+# version of readthedocs
+version: 2
+python:
+  version: 3.7
+
+  # install requirements
+  install:
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs

@@ -1,0 +1,60 @@
+repos:
+  # Black
+  - repo: https://github.com/psf/black
+    rev: 19.3b0
+    hooks:
+      - id: black
+        language_version: python3.7
+        args: [--safe, --quiet]
+        # override until resolved: https://github.com/ambv/black/issues/402
+        files: \.pyi?$
+        types: []
+  # Blacken-docs: black the code in documentation
+  - repo: https://github.com/asottile/blacken-docs
+    rev: v1.0.0
+    hooks:
+      - id: blacken-docs
+        additional_dependencies: [black==19.3b0]
+  # Flake8
+  # - repo: https://gitlab.com/pycqa/flake8
+  #   rev: 3.7.8
+  #   hooks:
+  #     - id: flake8
+  #       language_version: python3.7
+  #      additional_dependencies: [flake8-typing-imports==1.3.0]
+  # isort known config (work with isort next pre-commit-hook)
+  - repo: https://github.com/asottile/seed-isort-config
+    rev: v1.9.3
+    hooks:
+      - id: seed-isort-config
+  # isort: work with seed-isort-config
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v4.3.21
+    hooks:
+      - id: isort
+        language_version: python3.7
+  # pyupgrade: upgrade syntax Ex: set(()) => set() ...
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v1.18.0
+    hooks:
+      - id: pyupgrade
+        args: [--py3-plus]
+
+  # pygrep-hooks: A collection of fast, cheap, regex based pre-commit hooks.
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.4.0
+    hooks:
+     - id: rst-backticks
+  # pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: debug-statements  # check for pdb.set_trace breakpoint()...
+      - id: fix-encoding-pragma  # remove '# -*- coding: utf-8 -*-' (for python3 only)
+        args: [--remove]
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-xml

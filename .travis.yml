@@ -1,0 +1,30 @@
+notifications:
+  email: false
+language: python
+install:
+- pip install -e .[travis]
+matrix:
+  include:
+  - python: 3.7
+    env: TOXENV=docs
+  - python: 3.7
+    env: TOXENV=py37
+  - python: 3.6
+    env: TOXENV=py36
+  - python: 3.7
+    env: TOXENV=linting
+script:
+- tox
+after_success: codecov
+
+# Bad idea because it will run each time
+
+# deploy:
+#   provider: pypi
+#   # To have both sdist and wheel
+#   distributions: "sdist bdist_wheel"
+#   # to deploy once for all environments
+#   skip_existing: true
+#   user: "__token__"
+#   password:
+#    secure:
