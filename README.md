@@ -6,11 +6,11 @@
 
 # Coloring
 
-Coloring is an other python library used to colorize texts in terminal using ANSI escape with a pythonic API (currently the library works only in Linux).
+Coloring is an other python library used to colorize texts in terminal using ANSI escape with a pythonic API.
 
 ## Why an other coloring library?
 
-Many **excellent** coloring library for python already exist like [colorama](https://github.com/tartley/colorama) (that support also Windows). I wanted to create an other library with a more **pythonic API** that I could **directly use** without wrapping the existing functions.
+Many **excellent** coloring library for python already exist like [colorama](https://github.com/tartley/colorama). I wanted to create an other library with a more **pythonic API** that I could **directly use** without wrapping the existing functions.
 
 I also wanted to add some features like
 
@@ -364,9 +364,9 @@ Most of the functions accept styles as a single string where each character repr
 
 Example ``buc`` mean bold, underlined and crossed.
 
-# [TODO] Support Windows
+# Support Windows
 
-Currently, the library don't support all terminals of Windows since it use the ANSI escape for coloring. However, it is possible to support windows by using the same principle used  by ``colorama`` in the  ``init`` function.
+The coloring library support new version of windows by activating [Console Virtual Terminal Sequences](https://docs.microsoft.com/en-us/windows/console/console-virtual-terminal-sequences#text-modification).
 
 # Contribute
 
@@ -382,7 +382,6 @@ Contributions are highly welcomed and appreciated, you can contribute by doing o
 
 ## TODO
 
-- [ ] [MEDIUM] Directly support Windows (use colorama?)
 - [ ] [EASY] Support hex colors (in function normalize_color)
 - [ ] [EASY] Fix/improve/test/document gradient function
 - [ ] [MEDIUM] Support gradient function with more than two colors

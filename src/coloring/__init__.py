@@ -11,6 +11,7 @@ from .coloring import (
 from .consts import COLOR_NAMES, COLORS, Color
 from .convenience_functions import *
 from .demo import demo_colors
+from .initialize import init
 from .remove_graphics import (
     rmbackground,
     rmblink,
@@ -22,3 +23,5 @@ from .remove_graphics import (
     rmstyle,
     rmunderline,
 )
+
+init()

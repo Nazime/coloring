@@ -1,4 +1,4 @@
-import os
+import shutil
 
 from .coloring import colorize, cprint
 from .consts import *
@@ -15,7 +15,7 @@ def demo_colors(word_per_line: int = None, *, bg=None, s: str = None):
 
     # get the longest word
     if word_per_line is None:
-        terminal_size = os.get_terminal_size(0).columns
+        terminal_size = shutil.get_terminal_size().columns
         word_per_line = terminal_size // max_len_word
     for color_name in sorted(COLORS):
         cprint(color_name.ljust(max_len_word), c=color_name, bg=bg, s=s, end="")
@@ -26,6 +26,7 @@ def demo_colors(word_per_line: int = None, *, bg=None, s: str = None):
 
         i_word_per_line += 1
         i_word += 1
+    print()
 
 
 def demo_colors_old(word_per_line=10):
