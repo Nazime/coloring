@@ -19,6 +19,7 @@ I also wanted to add some features like
 - Functions to remove colors, backgrounds and styles from strings (remove ANSI escape)
 - Many conveniences functions, so I can directly use the library
 - The colorized prints functions respect the same signature as the built-in print function
+- Usable through CLI (mainly to remove ANSI escapes)
 
 ## Install
 
@@ -363,6 +364,17 @@ Most of the functions accept styles as a single string where each character repr
 - i: italic
 
 Example ``buc`` mean bold, underlined and crossed.
+
+### CLI
+
+```bash
+echo Hello | coloring red
+coloring --help
+coloring red Hello | coloring rmgraphics
+```
+
+
+
 
 # Support Windows
 

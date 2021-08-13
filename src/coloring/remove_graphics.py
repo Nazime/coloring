@@ -106,8 +106,7 @@ def rmgraphics(string: str) -> str:
 
 
 def rmcolor(text: str) -> str:
-    """Remove all color attributes from a string
-    """
+    """Remove all color attributes from a string"""
     # remove all attributes from 30 to 39
     # 30-37 => 8colors
     # 38 => 24 bits colors
@@ -117,8 +116,7 @@ def rmcolor(text: str) -> str:
 
 
 def rmbackground(text: str) -> str:
-    """Remove all color attributes from a string
-    """
+    """Remove all color attributes from a string"""
     # remove all attributes from 40 to 49
     # 40-47 => 8colors background
     # 48 => 24 bits colors background

@@ -14,6 +14,7 @@ CROSS = f"{CSI}9m"
 DOUBLE_UNDERLINE = f"{CSI}21m"
 Conceal = "8"  # INVISIBLE
 
+STYLES = ["bold", "dim", "cross", "blink", "underline", "double_underline", "italic"]
 
 STYLE_MAP = {
     "b": BOLD,

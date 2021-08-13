@@ -161,9 +161,16 @@ def filter_colors_with_digit(colors):
 
 
 def generate_color_script_limited(filepath):
+    colors = filter_colors_with_digit(COLORS)
+    colors = sorted(list(colors))
+
     file = open(filepath, "w")
-    header = """# FILE GENERATED AUTOMATICALLY WITH script.py:generate_color_script_limited
+    header = f"""# FILE GENERATED AUTOMATICALLY WITH script.py:generate_color_script_limited
 from .coloring import create_print, create_color
+
+
+DEFAULT_COLORS = {colors}
+
 
 """
     file.write(header)
@@ -177,8 +184,7 @@ print_b{color} = create_print("{color}", s="b", name="print_b{color}")
 
 
 """
-    colors = filter_colors_with_digit(COLORS)
-    colors = sorted(list(colors))
+
     # print(list(colors))
     for color in colors:
         color_title = "#" * (len(color) + 4)

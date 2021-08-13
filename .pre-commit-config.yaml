@@ -4,7 +4,7 @@ repos:
     rev: 19.3b0
     hooks:
       - id: black
-        language_version: python3.7
+        language_version: python3
         args: [--safe, --quiet]
         # override until resolved: https://github.com/ambv/black/issues/402
         files: \.pyi?$
@@ -32,7 +32,7 @@ repos:
     rev: v4.3.21
     hooks:
       - id: isort
-        language_version: python3.7
+        language_version: python3
   # pyupgrade: upgrade syntax Ex: set(()) => set() ...
   - repo: https://github.com/asottile/pyupgrade
     rev: v1.18.0

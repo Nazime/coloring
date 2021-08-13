@@ -4,20 +4,22 @@ from .coloring import colorize, cprint
 from .consts import *
 
 
-def demo_colors(word_per_line: int = None, *, bg=None, s: str = None):
+def demo_colors(*, word_per_line: int = None, colors=None, bg=None, s: str = None):
+    if colors is None:
+        colors = COLORS
     i_word = 1
     i_word_per_line = 1
     i_line = 0
     msg = f"{i_line} "
-    print(f"{len(COLORS)} colors available: ")
+    print(f"{len(colors)} colors available: ")
 
-    max_len_word = len(max(COLORS, key=len)) + 1
+    max_len_word = len(max(colors, key=len)) + 1
 
     # get the longest word
     if word_per_line is None:
         terminal_size = shutil.get_terminal_size().columns
         word_per_line = terminal_size // max_len_word
-    for color_name in sorted(COLORS):
+    for color_name in sorted(colors):
         cprint(color_name.ljust(max_len_word), c=color_name, bg=bg, s=s, end="")
         if i_word_per_line == word_per_line:
             print()

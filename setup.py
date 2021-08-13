@@ -18,7 +18,7 @@ def read(*parts):
 
 # Metadata
 NAME = "coloring"
-VERSION = "0.1.4"
+VERSION = "0.1.5"
 LICENSE = "MIT"
 DESCRIPTION = "Coloring is an other python library used to colorize texts in terminal using ANSI escape with a pythonic API."
 LONG_DESCRIPTION = read("README.md")
@@ -65,7 +65,7 @@ EXTRAS_REQUIRE["travis"] = EXTRAS_REQUIRE["dev"] + ["tox", "codecov"]
 PYTHON_REQUIRES = ">=3.6"
 
 ZIP_SAFE = False
-ENTRY_POINTS = {}
+ENTRY_POINTS = {"console_scripts": ["coloring=coloring.__main__:main"]}
 INCLUDE_PACKAGE_DATA = False
 PACKAGE_DATA = {NAME: ["data/*"]}
 
