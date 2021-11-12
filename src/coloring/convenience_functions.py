@@ -1,5 +1,6 @@
 from .automatic_generated_convenience_functions import bdodger_blue, bgreen, bred
-from .coloring import create_color, create_print
+from .coloring import create_color, create_print, colorize
+from . import consts
 
 bold = create_color(s="b")
 dim = create_color(s="d")
@@ -20,12 +21,46 @@ print_blink = create_print(s="k")
 
 
 def print_success(*args, **kwargs):
-    print(bgreen("[+]"), *args, **kwargs)
+    print(
+        colorize(consts.TXT_SUCCESS, c=consts.COLOR_SUCCESS, s=consts.STYLE_SUCCESS),
+        *args,
+        **kwargs
+    )
 
 
 def print_failure(*args, **kwargs):
-    print(bred("[-]"), *args, **kwargs)
+    print(
+        colorize(consts.TXT_FAILURE, c=consts.COLOR_FAILURE, s=consts.STYLE_FAILURE),
+        *args,
+        **kwargs
+    )
 
 
 def print_info(*args, **kwargs):
-    print(bdodger_blue("[ ]"), *args, **kwargs)
+    print(
+        colorize(consts.TXT_INFO, c=consts.COLOR_INFO, s=consts.STYLE_INFO),
+        *args,
+        **kwargs
+    )
+
+
+def success(text):
+    return (
+        colorize(consts.TXT_SUCCESS, c=consts.COLOR_SUCCESS, s=consts.STYLE_SUCCESS)
+        + " "
+        + text
+    )
+
+
+def failure(text):
+    return (
+        colorize(consts.TXT_FAILURE, c=consts.COLOR_FAILURE, s=consts.STYLE_FAILURE)
+        + " "
+        + text
+    )
+
+
+def info(text):
+    return (
+        colorize(consts.TXT_INFO, c=consts.COLOR_INFO, s=consts.STYLE_INFO) + " " + text
+    )

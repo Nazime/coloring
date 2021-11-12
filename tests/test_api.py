@@ -8,7 +8,13 @@ def test_simple_print():
     coloring.print_red(text)
 
 
-def test_convenience_functions():
+def test_status_functions():
+    coloring.success("Yes")
+    coloring.failure("Nop")
+    coloring.info("yop")
+
+
+def test_print_status_functions():
     coloring.print_success("Yes")
     coloring.print_failure("Nop")
     coloring.print_info("yop")

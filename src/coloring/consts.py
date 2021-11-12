@@ -62,6 +62,15 @@ N_RESET_CROSS = "29"
 N_RESET_COLOR = "39"
 N_RESET_BACKGROUND = "49"
 
+COLOR_SUCCESS = "green"
+COLOR_FAILURE = "red"
+COLOR_INFO = "dodger_blue"
+STYLE_SUCCESS = "b"
+STYLE_FAILURE = "b"
+STYLE_INFO = "b"
+TXT_SUCCESS = "[+]"
+TXT_FAILURE = "[-]"
+TXT_INFO = "[ ]"
 
 COLORS = {
     "alice_blue": (240, 248, 255),
