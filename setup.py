@@ -18,7 +18,7 @@ def read(*parts):
 
 # Metadata
 NAME = "coloring"
-VERSION = "0.1.6"
+VERSION = "0.1.7"
 LICENSE = "MIT"
 DESCRIPTION = "Coloring is an other python library used to colorize texts in terminal using ANSI escape with a pythonic API."
 LONG_DESCRIPTION = read("README.md")

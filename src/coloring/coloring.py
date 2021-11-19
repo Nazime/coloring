@@ -71,12 +71,24 @@ def parse_style(s: str):
 
 
 def normalize_color(color: Color) -> tuple:
-    # TODO: fix me (don't accept int)
+    """
+    Normalize a color to a tuple of three int (red, green, blue)
+    """
+    # handle string case: color name or hex color
     if isinstance(color, str):
+        # handle hex color
+        if color.startswith("#"):
+            if len(color) != 7:
+                raise ValueError(f"incorrect hexadecimal color {color!r}")
+            return tuple(bytes.fromhex(color[1:]))
+
+        # handle color name
         try:
             return COLORS[color]
         except KeyError:
             raise ValueError(f"color {color!r} not recognized")
+
+    # handle tuple color
     elif isinstance(color, tuple):
         if len(color) == 3:
             check_colors(*color)

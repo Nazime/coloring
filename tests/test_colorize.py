@@ -1,3 +1,4 @@
+import pytest
 from coloring import colorize, create_color
 from coloring.consts import *
 
@@ -42,3 +43,49 @@ def test_colorize_background():
 
     colored_text = colorize(text, bg=(128, 128, 128))
     assert colored_text == f"{CSI}48;2;128;128;128m{text}{RESET_BACKGROUND}"
+
+
+def test_hex_colors():
+    text = "Hello world"
+
+    colorized_text = colorize(text, c="#000000")
+    assert colorized_text == colorize(text, c=(0, 0, 0))
+
+    colorized_text = colorize(text, c="#FFFFFF")
+    assert colorized_text == colorize(text, c=(255, 255, 255))
+
+    colorized_text = colorize(text, c="#ffffff")
+    assert colorized_text == colorize(text, c=(255, 255, 255))
+
+    colorized_text = colorize(text, c="#FfFfFf")
+    assert colorized_text == colorize(text, c=(255, 255, 255))
+
+    colorized_text = colorize(text, c="#512e5f")
+    assert colorized_text == colorize(text, c=(81, 46, 95))
+
+    colorized_text = colorize(text, c="#512E5f")
+    assert colorized_text == colorize(text, c=(81, 46, 95))
+
+
+def test_hex_color_exception():
+    text = "Hello world"
+
+    # less then 7 characters
+    with pytest.raises(ValueError):
+        colorize(text, c="#512E5")
+
+    # adding non hexadecimal character
+    with pytest.raises(ValueError):
+        colorize(text, c="#512o5")
+
+    # more then 7 characters
+    with pytest.raises(ValueError):
+        colorize(text, c="#512E5ff")
+
+    # more then 7 characters
+    with pytest.raises(ValueError):
+        colorize(text, c="#512E5fea")
+
+    # less the 7 characters
+    with pytest.raises(ValueError):
+        colorize(text, c="#512E")

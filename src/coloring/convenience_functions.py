@@ -1,6 +1,6 @@
-from .automatic_generated_convenience_functions import bdodger_blue, bgreen, bred
-from .coloring import create_color, create_print, colorize
 from . import consts
+from .automatic_generated_convenience_functions import bdodger_blue, bgreen, bred
+from .coloring import colorize, create_color, create_print
 
 bold = create_color(s="b")
 dim = create_color(s="d")

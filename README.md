@@ -394,6 +394,6 @@ Contributions are highly welcomed and appreciated, you can contribute by doing o
 
 ## TODO
 
-- [ ] [EASY] Support hex colors (in function normalize_color)
+- [x] [EASY] Support hex colors (in function normalize_color)
 - [ ] [EASY] Fix/improve/test/document gradient function
 - [ ] [MEDIUM] Support gradient function with more than two colors

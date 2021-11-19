@@ -105,3 +105,7 @@ def test_check_color():
         check_color(300)
 
     check_color(123)
+
+
+def test_normalize_hex():
+    assert normalize_color("#000000") == (0, 0, 0)
