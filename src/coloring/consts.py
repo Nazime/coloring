@@ -2,6 +2,7 @@ from typing import Tuple, Union
 
 Color = Union[str, Tuple[int, int, int]]
 
+VERSION = "0.1.8"
 
 CSI = "\033["
 RESET_ALL = f"{CSI}0m"

@@ -7,6 +7,15 @@ from setuptools import find_packages, setup
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 
+def get_version(rel_path):
+    for line in read(rel_path).splitlines():
+        if line.startswith("VERSION"):
+            delim = '"' if '"' in line else "'"
+            return line.split(delim)[1]
+    else:
+        raise RuntimeError("Unable to find version string.")
+
+
 def read(*parts):
     """
     Build an absolute path from *parts* and and return the contents of the
@@ -18,7 +27,7 @@ def read(*parts):
 
 # Metadata
 NAME = "coloring"
-VERSION = "0.1.7"
+VERSION = get_version(f"src/{NAME}/consts.py")
 LICENSE = "MIT"
 DESCRIPTION = "Coloring is an other python library used to colorize texts in terminal using ANSI escape with a pythonic API."
 LONG_DESCRIPTION = read("README.md")
